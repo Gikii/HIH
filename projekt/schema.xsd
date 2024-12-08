@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="bikesite" type="bikesiteType"/>
+    <xs:element name="image" type="adressType"/>
+    <xs:element name="link" type="adressType"/>
+
+    <xs:simpleType name="veryShortStringType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="shortStringType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="longStringType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="descriptionType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="100"/>
+            <xs:maxLength value="1500"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+
+    <xs:complexType name="bikesiteType">
+        <xs:sequence>
+            <xs:element name="communities" type="communitiesType"/>
+            <xs:element name="informations" type="informationsType"/>
+            <xs:element name="bikes" type="bikesType" maxOccurs="unbounded"/>
+            <xs:element name="contact" type="contactType"/>
+            <xs:element name="copyright" type="copyrightType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="communitiesType">
+        <xs:sequence>
+            <xs:element name="community" type="communityType" maxOccurs="3"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="informationsType">
+        <xs:sequence>
+            <xs:element name="information" type="informationType" maxOccurs="5"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="bikesType">
+        <xs:sequence>
+            <xs:element name="bike" type="bikeType" maxOccurs="9"/>
+        </xs:sequence>
+        <xs:attribute name="gender" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="communityType">
+        <xs:sequence>
+            <xs:element name="service" type="xs:string"/>
+            <xs:element ref="link"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="advantageType">
+        <xs:sequence>
+            <xs:element name="category" type="xs:string"/>
+            <xs:element name="description" type="descriptionType"/>
+        </xs:sequence>
+        <xs:attribute name="n">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="1"/>
+                    <xs:enumeration value="2"/>
+                    <xs:enumeration value="3"/>
+                    <xs:enumeration value="4"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="informationType">
+        <xs:sequence>
+            <xs:element name="title" type="longStringType"/>
+            <xs:element name="description" type="descriptionType" minOccurs="0"/>
+            <xs:element name="advantages" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="advantage" type="advantageType" maxOccurs="4"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element ref="image" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="bikeType">
+        <xs:sequence>
+            <xs:element name="type" type="shortStringType"/>
+            <xs:element name="model" type="shortStringType"/>
+            <xs:element name="characteristics" type="xs:string"/>
+            <xs:element name="performance" type="xs:string" minOccurs="0"/>
+            <xs:element name="seat" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="gender" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="contactType">
+        <xs:sequence>
+            <xs:element name="location" type="xs:string"/>
+            <xs:element name="adress" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="copyrightType">
+        <xs:sequence>
+            <xs:element name="author" type="authorType"/>
+            <xs:element name="year" type="xs:gYear"/>
+            <xs:element name="info" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="authorType">
+        <xs:sequence>
+            <xs:element name="name" type="veryShortStringType"/>
+            <xs:element name="surname" type="veryShortStringType"/>
+            <xs:element name="group" type="veryShortStringType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    	<xs:complexType name="adressType">
+		    <xs:simpleContent>
+			    <xs:extension base="xs:string">
+				    <xs:attribute name="source" type="xs:anyURI" use="required"/>
+			    </xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+    <head>
+        <meta charset="utf-8">
+        <title> Motocyklowo</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <link rel="stylesheet" href="styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="jquery-ui.theme.min.css">
+        <link rel="stylesheet" href="jquery-ui.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        <script src="analogClock.js"></script>
+        <script>
+        $( function() {
+          $( "#dialog-message" ).dialog({
+            modal: true,
+            buttons: {
+              Ok: function() {
+                $( this ).dialog( "close" );
+              }
+            }
+          });
+        } );
+        </script>
+        <script>
+            $( function() {
+              $( "#datepicker" ).datepicker({
+                changeMonth: true,
+                changeYear: true
+              });
+            } );
+            </script>
+    </head>
+    <body>
+        <nav >
+            <img class="logo" src="images/logonet113.png" alt="mały motocykl">
+            <ul>
+                <li><a  href="hobby.html">Strona główna</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn active">Znajdź motocykl dla siebie</a>
+                    <div class="dropdown-content">
+                        <a href="listamale.html">Mężczyźni</a>
+                        <a href="listafmale.html">Kobiety</a>
+                        <a href="testride.html">Jazda próbna</a>
+                    </div>
+                </li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    <header>
+        &nbsp;
+    </header>
+    <div class="row">
+        <div class="col-3 left">
+            <h3>Zaobserwuj nas!</h3>
+            <ul>
+                <li><a href="https://www.instagram.com"><img src="images/instagram.png" alt="instagram"></a></li>
+                <li><a href="https://www.facebook.com"><img src="images/facebook.png" alt="facebook"></a></li>
+                <li><a href="https://www.youtube.com"><img src="images/youtube.png" alt="youtube"></a></li>
+            </ul>
+        </div>
+        <div class="col-6 content">
+            <h1>Umów się na jazdę próbną</h1>
+            <div id="dialog-message" title="Jazda próbna">
+                <p>
+                  <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+                  Aby zapisać się na jazdę próbną, wypełnij formularz na tej stronie. Nasi pracownicy odezwą się w ciągu najbliższych dni.
+                </p>
+              </div>
+            <form class="testdrive" action="odbierz.php" method="post">
+                <label for="fname">Imię:</label><br>
+                <input type="text" id="fname" name="fname"><br>
+                <label for="lname">Nazwisko:</label><br>
+                <input type="text" id="lname" name="lname"><br>
+                Email:
+                <label for="mail"></label><br>
+                <input  type="email" id="mail" name="mail"
+                ><br>
+                Płeć: <br>
+                <input type="radio" id="male" name="sex" value="male">
+                <label for="male">Mężczyzna</label><br>
+                <input type="radio" id="female" name="sex" value="female">
+                <label for="female">Kobieta</label><br><br>
+                Posiadane prawo jazdy: <br>
+                <input type="checkbox" id="license1" name="license1" value="car">
+                <label for="license1">B</label><br>
+                <input type="checkbox" id="license2" name="license2" value="bikeA">
+                <label for="license2">A</label><br>
+                <input type="checkbox" id="license3" name="license3" value="BikeA2">
+                <label for="license3">A2</label><br>
+                <input type="checkbox" id="license4" name="license4" value="BikeA1">
+                <label for="license4">A1</label><br><br>
+                Data urodzenia: <br>
+                <input type="text" id="datepicker" placeholder="Wybierz datę">
+                <label for="experience">Doświadczenie:</label><br>
+                <select id="experience" name="experience">
+                    <option value="advanced">Doświadczony motocyklista</option>
+                    <option value="good">Jeżdzę okazjonalnie</option>
+                    <option value="medium">Umiem poruszać się tylko po parkingu</option>
+                    <option value="bad">Nie umiem jeździć motocyklem/jazda jako pasażer</option>
+                </select>
+                <br><br>
+                <input type="reset" value="Reset">
+                <input type="submit" value="Wyślij">
+            </form>
+        </div>
+        <div class="col-3">
+            <div id="clock"> </div>
+            <script>
+                AnalogClock("clock", new AnalogClockOption(200, "#d6d8de", "#1F2024"));
+            </script>
+        </div>
+    </div>
+    <footer>
+        <div>
+            <form action="odbierz_newsletter.php" method="post">
+                Zapisz się newslettera, aby otrzymywać wiadomości o aktualnościach!
+                <label for="name"></label>
+                <input type="text" id="name" name="name" required
+                placeholder="Imię">
+                <label for="email"></label>
+                <input  type="email" id="email" name="email" required
+                placeholder="email">
+                <input type="submit" value="Zapisz!"><br>
+            </form>
+        </div>
+        <p>Copyright 2023, Kacper Mikołajuk I8. Wszelkie prawa zastrzeżone</p>
+    </footer>
+    </body>
+</html>

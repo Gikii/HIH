@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+    <head>
+        <meta charset="utf-8">
+        <title> Motocyklowo</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+        <link rel="stylesheet" href="styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="analogClock.js"></script>
+    </head>
+    <body>
+        <nav >
+            <img class="logo" src="images/logonet113.png" alt="mały motocykl">
+            <ul>
+                <li><a  href="hobby.html">Strona główna</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn active">Znajdź motocykl dla siebie</a>
+                    <div class="dropdown-content">
+                        <a href="listamale.html">Mężczyźni</a>
+                        <a href="listafmale.html">Kobiety</a>
+                        <a href="testride.html">Jazda próbna</a>
+                    </div>
+                </li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    <header>
+        &nbsp;
+    </header>
+    <div class="row">
+        <div class="col-3 left">
+            <h3>Zaobserwuj nas!</h3>
+            <ul>
+                <li><a href="https://www.instagram.com"><img src="images/instagram.png" alt="instagram"></a></li>
+                <li><a href="https://www.facebook.com"><img src="images/facebook.png" alt="facebook"></a></li>
+                <li><a href="https://www.youtube.com"><img src="images/youtube.png" alt="youtube"></a></li>
+            </ul>
+        </div>
+        <div class="col-6 content">
+            <h1>Wybór motocykla dla kobiety</h1>
+            <section>
+                <p>Wybór odpowiedniego motocykla dla kobiety zależy głównie od jej doświadczenia w jeździe, indywidualnych preferencji i celów. Istnieje wiele modeli, które mogą być odpowiednie dla kobiet, uwzględniając zarówno ergonomię, jak i osiągi. Oto kilka ogólnych wskazówek:</p>
+                <br>
+                <h4>Oto kilka popularnych rodzajów motocykli i ich charakterystyki, które mogą pomóc w wyborze:</h4>
+                <ol>
+                    <li>Niski prześwit: Motocykle z niższym siedzeniem mogą być bardziej komfortowe dla wielu kobiet, ponieważ ułatwiają stawianie stóp na ziemi w momencie zatrzymania się.</li>
+                    <li>Lekkie i zwrotne: Modele o mniejszej masie i lepszej zwrotności mogą być bardziej odpowiednie dla początkujących lub tych, którzy preferują łatwiejsze manewrowanie.</li>
+                    <li>Moc i rozmiar: Możesz rozważyć motocykle o mniejszej pojemności, takie jak 250-500 cm^3, które mogą być bardziej przyjazne dla osób o mniejszym wzroście lub początkujących.</li>
+                    <li>Customowe opcje: Firmy motocyklowe często oferują "niskie" wersje popularnych modeli, które mogą lepiej pasować do kobiet dzięki dostosowanej wysokości siedzenia.</li>
+                </ol>
+            </section>
+            <section>
+                <h3>Proponowane motocykle</h3>
+                <table>
+                    <tr>
+                        <th>Rodzaj Motocykla</th>
+                        <th>Model</th>
+                        <th>Specyfikacja</th>
+                        <th>Siedzenie</th>
+                    </tr>
+                    <tr>
+                        <td>Naked</td>
+                        <td>Suzuki SV650</td>
+                        <td>645 cm^3, 75KM, 197kg</td>
+                        <td>Standardowe, 785 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Sportowy</td>
+                        <td>Kawasaki Ninja 400</td>
+                        <td>399 cm^3, 45KM, 168kg</td>
+                        <td>Standardowe, 785 mm</td>
+                    </tr>
+                    <tr>
+                        <td>Cruiser</td>
+                        <td>Honda Rebel 300	</td>
+                        <td>286 cm^3, 30KM, 165kg</td>
+                        <td>Niskie, 690 mm</td>
+                    </tr>
+                </table>
+                <p>Powyższa tabela przedstawia różne modele motocykli z ich charakterystycznymi cechami, osiągami. Ceny mogą się różnić w zależności od regionu, roku produkcji i stanu rynku. Przed zakupem motocykla zaleca się dodatkową analizę i ewentualne konsultacje z dealerami motocyklowymi, aby wybrać model najlepiej odpowiadający potrzebom i preferencjom.</p>
+                <br>
+                <p>Zachęcamy do umówienia się na jazdę próbną, w celu znalezenia odpowiedniego modelu dopasowanego do twoich potrzeb.</p><br>
+                <a id="linktopage" href="testride.html">Umów się na jazdę próbną</a>
+            </section>
+        </div>
+        <div class="col-3">
+            <div id="clock"> </div>
+            <script>
+                AnalogClock("clock", new AnalogClockOption(200, "#d6d8de", "#1F2024"));
+            </script>
+        </div>
+    </div>
+    <footer>
+        <div>
+            <form action="odbierz_newsletter.php" method="post">
+                Zapisz się newslettera, aby otrzymywać wiadomości o aktualnościach!
+                <label for="name"></label>
+                <input type="text" id="name" name="name" required
+                placeholder="Imię">
+                <label for="email"></label>
+                <input  type="email" id="email" name="email" required
+                placeholder="email">
+                <input type="submit" value="Zapisz!"><br>
+            </form>
+        </div>
+        <p>Copyright 2023, Kacper Mikołajuk I8. Wszelkie prawa zastrzeżone</p>
+    </footer>
+    </body>
+</html>
